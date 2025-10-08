@@ -1,5 +1,6 @@
 pkg update && pkg upgrade
-pkg install python clang
+pkg install python-dev clang openssl-dev
+pip install --no-cache-dir --no-binary :all: sqlcipher3
 
 # pip install -r requirements.txt
 
