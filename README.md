@@ -26,25 +26,25 @@ A seguir, algumas imagens que ilustram o funcionamento do Necrypt:
 
 | Menu Principal | Adicionar Novo Segredo |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028595840/WYmqbhkpZmVPZRDd.png" width="300"> | <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028595840/LgmlUSQNZulRrtDG.png" width="300"> |
+| <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/Welcome.png" width="300"> | <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/AddSecret.png" width="300"> |
 
 ### Consulta e Listagem de Segredos
 
-| Consultar Segredo | Listar Segredos |
+| Listar Segredos | Consultar Segredo |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028595840/clAXnayNWYpKBdmk.png" width="300"> | <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028595840/vGQTAoPORbCdbmOA.png" width="300"> |
+| <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/SearchIDs.png" width="300"> | <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/Consult.png" width="300"> |
 
 ### Backup e Restauração
 
 | Exportar Backup | Importar Backup |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028595840/PqmObsJSfiQKJZLu.png" width="300"> | <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028595840/DNapPoBDDFexBnvJ.png" width="300"> |
+| <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/BackupDown.png" width="300"> | <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/BackUP.png" width="300"> |
 
 ### Formatação do Cofre
 
 | Formatar Cofre |
 | :----------------------------------------------------------: |
-| <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028595840/ZlnbEiAJdIDrkLZA.png" width="300"> |
+| <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/Wipe.png" width="125"> |
 
 ## 🔐 Segurança em Primeiro Lugar: Uma Análise Profunda
 
