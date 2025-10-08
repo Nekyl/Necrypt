@@ -1,0 +1,10 @@
+# requirements.txt
+
+cython
+argon2-cffi
+pysqlcipher3-binary
+rich
+appdirs
+cryptography
+prompt-toolkit
+
