@@ -7,8 +7,8 @@ import json
 from pathlib import Path
 import ctypes
 import hmac
-   
-from pysqlcipher3 import dbapi2 as sqlite
+
+from sqlcipher3 import dbapi2 as sqlite
 from appdirs import user_data_dir
 
 # --- IMPORTS DE CRIPTOGRAFIA ---
