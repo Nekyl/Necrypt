@@ -110,6 +110,12 @@ Certifique-se de ter o Python 3 instalado. As dependências estão listadas abai
 pip install pysqlcipher3-binary appdirs cryptography argon2-cffi rich secure-getpass prompt-toolkit
 ```
 
+Ou
+
+```bash
+pip install -r requirements.txt
+```
+
 ### Executando
 
 Clone o repositório e execute o script:
