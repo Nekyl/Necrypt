@@ -44,7 +44,7 @@ A seguir, algumas imagens que ilustram o funcionamento do Necrypt:
 
 | Formatar Cofre |
 | :----------------------------------------------------------: |
-| <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/Wipe.png" width="125"> |
+| <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/Wipe.png" width="150"> |
 
 ## 🔐 Segurança em Primeiro Lugar: Uma Análise Profunda
 
