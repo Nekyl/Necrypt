@@ -2,7 +2,7 @@
 
 cython
 argon2-cffi
-pysqlcipher3-binary
+sqlcipher3
 rich
 appdirs
 cryptography
