@@ -121,6 +121,8 @@ pip install -r requirements.txt
 Clone o repositório e execute o script:
 
 ```bash
+pkg install python-dev clang openssl-dev
+pip install --no-cache-dir --no-binary :all: sqlcipher3
 git clone https://github.com/Nekyl/Necrypt.git
 cd Necrypt
 Python setup.py build_ext --inplace
