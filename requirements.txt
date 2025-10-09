@@ -2,6 +2,7 @@
 
 --no-cache-dir
 appdirs
+keyring
 cryptography
 argon2-cffi
 rich
