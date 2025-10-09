@@ -129,7 +129,7 @@ cd Necrypt
 
 # Compile nosso secure_getpass.pyx
 # Vai gerar um secure_getpass.c
-Python setup.py build_ext --inplace
+python setup.py build_ext --inplace
 # após isso podemos rodar
 
 python cofre.py
