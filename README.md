@@ -28,7 +28,7 @@ A seguir, algumas imagens que ilustram o funcionamento do Necrypt:
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/Welcome.png" width="300"> | <img src="https://raw.githubusercontent.com/Nekyl/Necrypt/refs/heads/main/assets/AddSecret.png" width="300"> |
 
-### Consulta e Listagem de Segredos
+### Listagem e Consulta de Segredos
 
 | Listar Segredos | Consultar Segredo |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
