@@ -111,7 +111,7 @@ Sua senha final (`G&n3kYl-!s-@w3s0m3`) não está armazenada em lugar nenhum. Pa
 Certifique-se de ter o Python 3 instalado. Recomenda-se criar um ambiente virtual.
 
 ```bash
-pip install --no-cache-dir --no-binary :all: sqlcipher3 appdirs cryptography argon2-cffi rich secure-getpass prompt-toolkit flask requests
+pip install --no-cache-dir --no-binary :all: sqlcipher3 appdirs cryptography argon2-cffi rich secure-getpass prompt-toolkit flask requests keyring
 ```
 
 Ou a partir do arquivo de dependências:
