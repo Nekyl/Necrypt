@@ -1,10 +1,13 @@
 # requirements.txt
 
-cython
-argon2-cffi
-sqlcipher3
-rich
+--no-cache-dir
 appdirs
 cryptography
+argon2-cffi
+rich
+secure-getpass
 prompt-toolkit
-
+--no-binary=sqlcipher3
+sqlcipher3
+flask
+requests
