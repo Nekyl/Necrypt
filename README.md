@@ -107,7 +107,7 @@ Para extrair o potencial máximo desta ferramenta, use-a em conjunto com um gera
 Certifique-se de ter o Python 3 instalado. As dependências estão listadas abaixo. Recomenda-se criar um ambiente virtual.
 
 ```bash
-pip install pysqlcipher3-binary appdirs cryptography argon2-cffi rich secure-getpass prompt-toolkit
+pip install --no-cache-dir --no-binary :all: sqlcipher3 appdirs cryptography argon2-cffi rich secure-getpass prompt-toolkit flask requests
 ```
 
 Ou
@@ -121,11 +121,17 @@ pip install -r requirements.txt
 Clone o repositório e execute o script:
 
 ```bash
+# Se Termux
 pkg install python-dev clang openssl-dev
-pip install --no-cache-dir --no-binary :all: sqlcipher3
+
 git clone https://github.com/Nekyl/Necrypt.git
 cd Necrypt
+
+# Compile nosso secure_getpass.pyx
+# Vai gerar um secure_getpass.c
 Python setup.py build_ext --inplace
+# após isso podemos rodar
+
 python cofre.py
 ```
 
