@@ -31,6 +31,9 @@ from rich.markdown import Markdown
 from rich.prompt import Prompt, Confirm
 from rich.align import Align
 
+
+import subprocess 
+import sys 
 # Importando função segura de captura de senha
 from secure_getpass import get_secure_pass
 
@@ -43,7 +46,7 @@ ph = PasswordHasher(time_cost=6, memory_cost=524288, parallelism=8)
 
 NOME_APP = "Necrypt"
 AUTOR_APP = "Nekyl"
-USER_NAME = "Nekyl"
+USER_NAME = "SEU_NOME"
 DIRETORIO_DADOS = user_data_dir(NOME_APP, AUTOR_APP)
 os.makedirs(DIRETORIO_DADOS, exist_ok=True)
 NOME_DO_BANCO = os.path.join(DIRETORIO_DADOS, "meu_cofre_pessoal.db")
@@ -479,21 +482,72 @@ def adicionar_entrada(conn):
     except KeyboardInterrupt:
         console.print("\n[red]Operação cancelada.[/red]")
 
+def limpar_clipboard_apos_delay(delay_em_segundos):
+    """
+    Espera por um tempo definido e depois limpa a área de transferência
+    executando o comando com uma string vazia.
+    """
+    time.sleep(delay_em_segundos)
+    try:
+        # Checa novamente se está no Termux
+        if "com.termux" in sys.prefix:
+            subprocess.run(['termux-clipboard-set'], input='', text=True, check=True)
+            # Você pode opcionalmente mostrar uma notificação no Android
+            # subprocess.run(['termux-notification', '--title', 'Segurança', '--content', 'Área de transferência foi limpa.'])
+    except Exception:
+        # Se falhar (o que é raro), não faz nada para não interromper o usuário.
+        pass
 
 def consultar_entrada(conn):
     console.rule(style=THEME["panel.action"])
     console.print(Panel.fit("🔍 Consultar um Segredo", border_style=THEME["panel.action"]))
     identificador = Prompt.ask(f"[{THEME['prompt.default']}]> Qual Identificador você quer ver?[/]")
+    
     cursor = conn.cursor()
     cursor.execute("SELECT senha_mestra, salt_pessoal, observacao FROM segredos WHERE identificador = ?", (identificador,))
     resultado = cursor.fetchone()
+
     if resultado:
         senha, salt, obs = resultado
         console.print(Panel(f"Aqui estão os dados para: [bold magenta]'{identificador}'[/bold magenta]", border_style="magenta", expand=False))
-        console.print(Rule("[bold cyan]Senha[/bold cyan]", style="cyan")); console.print(f"[bold green]\n{senha}\n"); console.print(Rule(style="cyan"))
-        console.print(Rule("[bold yellow]Salt Pessoal[/bold yellow]", style="yellow")); console.print(Align.center(f"[bold green]{salt}[/]" if salt else "[italic](nenhum)[/italic]")); console.print(Rule(style="yellow"))
-        if obs: console.print(Panel(Markdown(obs), title="[bold green]Observações[/bold green]", border_style="green", padding=(1,2)))
+        
+        console.print(Rule("[bold cyan]Senha[/bold cyan]", style="cyan"))
+        console.print(f"[bold green]\n{senha}\n")
+        console.print(Rule(style="cyan"))
+        
+        console.print(Rule("[bold yellow]Salt Pessoal[/bold yellow]", style="yellow"))
+        console.print(Align.center(f"[bold green]{salt}[/]" if salt else "[italic](nenhum)[/italic]"))
+        console.print(Rule(style="yellow"))
+
+        if obs:
+            console.print(Panel(Markdown(obs), title="[bold green]Observações[/bold green]", border_style="green", padding=(1,2)))
+        
         console.line()
+
+        
+        if Confirm.ask(f"[{THEME['prompt.default']}]Deseja copiar a senha para a área de transferência?[/]"):
+            try:
+                # Verifica se está rodando no Termux (Android)
+                if "com.termux" in sys.prefix:
+                    # Executa o comando 'termux-clipboard-set' passando a senha
+                    subprocess.run(['termux-clipboard-set'], input=senha, text=True, check=True)
+                    
+                    console.print(f"[{THEME['feedback.success']}]✓ Senha copiada com sucesso usando Termux:API![/]")
+                    console.print("[yellow bold]Aviso:[/yellow bold] [italic]Por segurança, limpe sua área de transferências após o uso.[/italic]")
+                else:
+                    # Se não for Termux, continua usando pyperclip como alternativa
+                    # (você pode remover isso se seu script só roda no Termux)
+                    import pyperclip
+                    pyperclip.copy(senha)
+                    console.print(f"[{THEME['feedback.success']}]✓ Senha copiada com sucesso para a área de transferência![/]")
+
+            except FileNotFoundError:
+                console.print(f"[{THEME['feedback.error']}]Comando 'termux-clipboard-set' não encontrado. Verifique se o pacote 'termux-api' está instalado.[/]")
+            except Exception as e:
+                console.print(f"[{THEME['feedback.error']}]Ocorreu um erro ao copiar: {e}[/]")
+
+        console.line()
+
     else:
         console.print(f"\n[{THEME['feedback.error']}]Uhm... não encontrei nada com o nome '{identificador}'.[/]\n")
 
